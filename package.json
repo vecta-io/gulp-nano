@@ -1,0 +1,24 @@
+{
+  "name": "gulp-nano",
+  "version": "1.0.0",
+  "description": "SVG files compression tool for Nano. More information in [Nano](https://vecta.io/nano)",
+  "main": "index.js",
+  "dependencies": {
+    "nanosvg": "^1.0.8",
+    "through2-concurrent": "^2.0.0",
+    "vinyl": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vecta-io/gulp-nano.git"
+  },
+  "author": "Thomas Yip",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vecta-io/gulp-nano/issues"
+  },
+  "homepage": "https://github.com/vecta-io/gulp-nano#readme"
+}
