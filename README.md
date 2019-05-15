@@ -23,6 +23,22 @@ gulp.task('Compress SVG', function () {
 });
 ```
 
+### Options
+
+`key <string>` 
+
+- API key obtained from [Nano](https://vecta.io/nano)
+
+`mode <number>` 
+
+- 0 = image mode [default] (with font embedding)
+- 1 = object mode (without font embedding)
+
+`precision <number>`
+
+- Precision of numerical values in SVG.
+- 3 [default]
+
 ## License
 
 This software is licensed under the MIT License. [View the license](LICENSE).
