@@ -5,24 +5,25 @@ var _path = require('path'),
 
 module.exports = function (opts) {
     var obj = {},
-        stats,
+        stat,
         nano = new Nano(opts);
 
     opts = opts || {};
 
-    return _through.obj({ maxConcurrency: 4 }, function (file, enc, cb) {
+    return _through.obj({ maxConcurrency: 4 }, function (file, enc, next) {
         var me = this,
             newFile =  new _vinyl(file); //create a new file
 
         if (file.isNull() || file.isStream() || enc !== 'utf8' || _path.extname(file.path).toLowerCase() !== '.svg') {
             console.error(_path.basename(file.path), ': not a valid SVG file.');
-            return cb(null, file);
+            return next(null, file);
         }
         if (file.isBuffer()) {
-            stats = file.stat;
+            stat = file.stat;
             obj.name = _path.basename(file.path);
-            obj.size = stats.size;
-            obj.mode = opts.mode || 0;
+            obj.size = stat.size;
+            obj.mode = opts.mode;
+            obj.mode = opts.precision;
             obj.str = file.contents.toString('utf8');
 
             nano.compressString(obj, opts).then(function (file) {
@@ -32,10 +33,10 @@ module.exports = function (opts) {
 
                 newFile.contents = Buffer.from(file.str, 'utf8');
                 me.push(newFile);
-                cb();
+                next();
             }).catch(function (err) {
                 console.error(err);
-                cb();
+                next();
             });
         }
     });
