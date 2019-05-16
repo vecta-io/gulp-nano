@@ -1,6 +1,6 @@
 {
   "name": "gulp-nano",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "SVG files compression tool for Nano. More information in [Nano](https://vecta.io/nano)",
   "main": "index.js",
   "dependencies": {
