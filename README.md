@@ -14,11 +14,26 @@ Obtain API Key in [Nano](https://vecta.io/nano)
 
 ```javascript
 var gulp = require('gulp'),
-    gulp_nano = require('gulp-nano');
+    nano = require('gulp-nano');
 
 gulp.task('Compress SVG', function () {
     return gulp.src('./*.svg')
-        .pipe(gulp_nano({ key: <YOUR API KEY>, mode: <COMPRESSION MODE> }))
+        .pipe(nano({ key: <YOUR API KEY>, mode: <COMPRESSION MODE> }))
+        .pipe(gulp.dest('./compressed/'));
+});
+```
+
+## Usage with gulp-cache
+
+```javascript
+var gulp = require('gulp'),
+    cache = require('cache'), //cache compressed svg
+    nano = require('gulp-nano');
+
+gulp.task('Compress SVG', function () {
+    return gulp.src('./*.svg')
+        .pipe(cache(
+            nano({ key: <YOUR API KEY>, mode: <COMPRESSION MODE> }), { name: 'nano-cache' } )
         .pipe(gulp.dest('./compressed/'));
 });
 ```
