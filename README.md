@@ -18,7 +18,7 @@ var gulp = require('gulp'),
 
 gulp.task('Compress SVG', function () {
     return gulp.src('./*.svg')
-        .pipe(nano({ key: <YOUR API KEY>, mode: <COMPRESSION MODE> }))
+        .pipe(nano({ key: 'YOUR API KEY', mode: 'COMPRESSION MODE' }))
         .pipe(gulp.dest('./compressed/'));
 });
 ```
@@ -33,7 +33,7 @@ var gulp = require('gulp'),
 gulp.task('Compress SVG', function () {
     return gulp.src('./*.svg')
         .pipe(cache(
-            nano({ key: <YOUR API KEY>, mode: <COMPRESSION MODE> }), { name: 'nano-cache' } )
+            nano({ key: 'YOUR API KEY', mode: 'COMPRESSION MODE' }), { name: 'nano-cache' } )
         .pipe(gulp.dest('./compressed/'));
 });
 ```
