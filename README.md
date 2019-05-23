@@ -1,5 +1,7 @@
 ![Nano](logo.png)
 
+[![npm version](https://badge.fury.io/js/gulp-nano.svg)](https://badge.fury.io/js/gulp-nano)
+
 Gulp plugin for SVG files compression using Nano. For more information, visit [Nano](https://vecta.io/nano)
 
 ## Installation
